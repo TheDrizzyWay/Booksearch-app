@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 class App extends Component {
     render () {
-        return <h1>Welcome to the Drizzy bookfinder</h1>;
+        return <h1>Welcome to the Drizzy Bookfinder</h1>;
     }
 }
 
