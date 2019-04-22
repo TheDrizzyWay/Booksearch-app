@@ -1,0 +1,27 @@
+{
+  "name": "booksearch-app",
+  "version": "1.0.0",
+  "description": "simple bookfinder app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheDrizzyWay/Booksearch-app.git"
+  },
+  "keywords": [
+    "books",
+    "react"
+  ],
+  "author": "Christopher Iliyas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheDrizzyWay/Booksearch-app/issues"
+  },
+  "homepage": "https://github.com/TheDrizzyWay/Booksearch-app#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
