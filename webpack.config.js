@@ -1,41 +1,49 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-  devtool: 'inline-source-map',
-  entry: './src/index.js',
-  output: {
-    path: __dirname + 'dist/',
-    publicPath: '/dist',
-    filename: 'bundle.js'
-  },
-  devServer: {
-    contentBase: './dist',
-    port: 3000,
-    publicPath: "http://localhost:3000/dist/",
-  },
-  module: {
-    rules: [
-      {
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      use: ['babel-loader', 'eslint-loader']
+    devtool: 'inline-source-map',
+    entry: './src/index.js',
+    output: {
+        path: path.join(__dirname, 'dist/'),
+        publicPath: '/dist',
+        filename: 'bundle.js'
     },
-     {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader']
+    devServer: {
+        contentBase: './public',
+        port: 3000,
+        publicPath: "http://localhost:3000/public/"
     },
-    {
-      test: /\.(png|jpe?g|gif|svg|ico)$/i,
-      use: [{
-          loader: 'url-loader',
-          options: { limit: 8192 }
-        }]
-      }
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader', 'eslint-loader']
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {}
+                }]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|ico)$/i,
+                use: [{
+                    loader: 'url-loader',
+                    options: { limit: 8192 }
+                }]
+            }
+        ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html'
+        })
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html'
-    })
-  ]
 };
