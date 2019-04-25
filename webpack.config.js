@@ -14,6 +14,10 @@ module.exports = {
         port: 3000,
         publicPath: "http://localhost:3000/public/"
     },
+    resolve: {
+        modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+        extensions: ['*', '.js', '.jsx']
+    },
     module: {
         rules: [
             {
