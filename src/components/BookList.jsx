@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Book from './Book';
 import PropTypes from 'prop-types';
 
 class BookList extends Component {
@@ -7,7 +8,7 @@ class BookList extends Component {
         if (!searchTerm.length) return <h1>Enter your book name or author</h1>;
         return (
             books.length ? (
-                books.map(book => <h1>{book.volumeInfo.title}</h1>)
+                books.map(book => <Book key={book.id} {...book} />)
             ) : (
                 <h1> No results found for {searchTerm}</h1>
             )
