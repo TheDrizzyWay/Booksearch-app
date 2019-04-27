@@ -9,7 +9,7 @@ class BookList extends Component {
             books.length ? (
                 books.map(book => <h1>{book.volumeInfo.title}</h1>)
             ) : (
-                <h1> No results found</h1>
+                <h1> No results found for {searchTerm}</h1>
             )
         );
     }
