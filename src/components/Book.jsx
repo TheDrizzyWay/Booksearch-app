@@ -11,15 +11,11 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
     card: {
-        maxWidth: 400,
-        display: 'flex'
+        maxWidth: 300
     },
     media: {
         height: 300,
         width: 250
-    },
-    details: {
-        flexDirection: 'column'
     }
 };
 
@@ -33,7 +29,7 @@ function BookCard (props) {
                     image={volumeInfo.imageLinks.thumbnail}
                     title="Book Title"
                 />
-                <CardContent className={classes.details}>
+                <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {volumeInfo.title}
                     </Typography>

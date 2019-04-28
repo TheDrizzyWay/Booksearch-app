@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
 import Book from './Book';
 import PropTypes from 'prop-types';
 
@@ -8,7 +9,13 @@ class BookList extends Component {
         if (!searchTerm.length) return <h1>Enter your book name or author</h1>;
         return (
             books.length ? (
-                books.map(book => <Book key={book.id} {...book} />)
+                <Grid container spacing={24} style={{ padding: 24 }}>
+                    {books.map(book => (
+                        <Grid item xs={12} sm={8} lg={4} xl={3}>
+                            <Book key={book.id} {...book} />
+                        </Grid>
+                    ))}
+                </Grid>
             ) : (
                 <h1> No results found for {searchTerm}</h1>
             )
