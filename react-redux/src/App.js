@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import axios from 'axios';
 import SearchAppBar from './components/Header';
 import BookList from './components/BookList';
+import store from './store';
 import './App.css';
 
 const searchUrl = 'https://www.googleapis.com/books/v1/volumes';
@@ -24,10 +26,12 @@ class App extends Component {
   render () {
       const { books, searchTerm } = this.state;
       return (
-          <>
-          <SearchAppBar searchBook={this.searchBook}/>
-          <BookList books={books} searchTerm={searchTerm} />
-          </>
+          <Provider store={store}>
+            <>
+            <SearchAppBar searchBook={this.searchBook}/>
+            <BookList books={books} searchTerm={searchTerm} />
+            </>
+          </Provider>
       );
   }
 }
