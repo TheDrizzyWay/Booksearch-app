@@ -15,7 +15,7 @@ class App extends Component {
   searchBook = (userinput) => {
       axios.get(`${searchUrl}?q=${userinput}`)
           .then(res => this.setState({
-              books: res.data.items,
+              books: res.data.items || [],
               searchTerm: userinput
           }))
           .catch(err => console.log(err));

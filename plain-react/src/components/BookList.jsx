@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 class BookList extends Component {
     render () {
         const { props: { books, searchTerm } } = this;
-        if (!searchTerm.length) return <h1>Enter your book name or author</h1>;
+        if (!searchTerm.length) return <h1>Enter book title or author name</h1>;
         return (
             books.length ? (
                 <Grid container spacing={24} style={{ padding: 24 }}>
