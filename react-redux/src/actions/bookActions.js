@@ -4,7 +4,6 @@ const searchUrl = 'https://www.googleapis.com/books/v1/volumes';
 export const FETCH_BOOKS = 'FETCH_BOOKS';
 
 export const fetchBooks = (userinput) => dispatch => {
-    console.log('fetch');
     axios.get(`${searchUrl}?q=${userinput}`)
         .then(res => dispatch({
             type: FETCH_BOOKS,
