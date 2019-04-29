@@ -6,21 +6,16 @@ import store from './store';
 import './App.css';
 
 class App extends Component {
-  searchBook = (userinput) => {
-
-  };
-
-  render () {
-      const { books, searchTerm } = this.state;
-      return (
-          <Provider store={store}>
+    render () {
+        return (
+            <Provider store={store}>
             <>
-            <SearchAppBar searchBook={this.searchBook}/>
-            <BookList books={books} searchTerm={searchTerm} />
+            <SearchAppBar />
+            <BookList />
             </>
-          </Provider>
-      );
-  }
+            </Provider>
+        );
+    }
 }
 
 export default App;

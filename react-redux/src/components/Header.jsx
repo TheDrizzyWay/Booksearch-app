@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,6 +8,7 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+import { fetchBooks } from '../actions/bookActions';
 
 const styles = theme => ({
     root: {
@@ -86,7 +88,7 @@ class SearchAppBar extends Component {
   onKeyUpHandler = (e) => {
       const { focus, userinput } = this.state;
       if (focus && e.keyCode === 13) {
-          this.props.searchBook(userinput);
+          this.props.fetchBooks(userinput);
       }
   }
 
@@ -123,10 +125,13 @@ class SearchAppBar extends Component {
       );
   }
 }
+const mapDispatchToProps = {
+    fetchBooks: fetchBooks
+};
 
 SearchAppBar.propTypes = {
     classes: PropTypes.object.isRequired,
-    searchBook: PropTypes.func.isRequired
+    fetchBooks: PropTypes.func
 };
 
-export default withStyles(styles)(SearchAppBar);
+export default connect(null, mapDispatchToProps)(withStyles(styles)(SearchAppBar));

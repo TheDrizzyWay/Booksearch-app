@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Book from './Book';
 import PropTypes from 'prop-types';
@@ -23,9 +24,14 @@ class BookList extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    books: state.books.books,
+    searchTerm: state.books.searchTerm
+});
+
 BookList.propTypes = {
     books: PropTypes.array,
     searchTerm: PropTypes.string
 };
 
-export default BookList;
+export default connect(mapStateToProps)(BookList);
