@@ -34,7 +34,7 @@ function BookCard (props) {
                         {volumeInfo.title}
                     </Typography>
                     <Typography component="div">
-                        <h3>Author: {volumeInfo.authors[0]}</h3>
+                        <h3>Author: {volumeInfo.authors ? volumeInfo.authors[0] : null}</h3>
                         <h4>Pages: {volumeInfo.pageCount}</h4>
                         <h4>Published: {volumeInfo.publishedDate}</h4>
                     </Typography>
