@@ -87,8 +87,9 @@ class SearchAppBar extends Component {
 
   onKeyUpHandler = (e) => {
       const { focus, userinput } = this.state;
+      const { startIndex } = this.props;
       if (focus && e.keyCode === 13) {
-          this.props.fetchBooks(userinput);
+          this.props.fetchBooks(userinput, startIndex);
       }
   }
 
@@ -125,13 +126,18 @@ class SearchAppBar extends Component {
       );
   }
 }
+const mapStateToProps = state => ({
+    startIndex: state.books.startIndex
+});
+
 const mapDispatchToProps = {
     fetchBooks: fetchBooks
 };
 
 SearchAppBar.propTypes = {
     classes: PropTypes.object.isRequired,
-    fetchBooks: PropTypes.func
+    fetchBooks: PropTypes.func,
+    startIndex: PropTypes.number
 };
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(SearchAppBar));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(SearchAppBar));

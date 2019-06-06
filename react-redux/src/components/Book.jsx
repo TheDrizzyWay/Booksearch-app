@@ -26,7 +26,7 @@ function BookCard (props) {
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
-                    image={volumeInfo.imageLinks.thumbnail}
+                    image={volumeInfo.imageLinks ? volumeInfo.imageLinks.thumbnail : null}
                     title="Book Title"
                 />
                 <CardContent>
