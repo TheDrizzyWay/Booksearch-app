@@ -10,7 +10,7 @@ class BookList extends Component {
         return (
             books.length ? (
               <>
-                <Grid container spacing={24} style={{ padding: 24 }}>
+                <Grid container spacing={24} style={{ padding: 24, justifyContent: 'space-between' }}>
                     {books.map(book => (
                         <Grid key={`${book.id}${book.etag}`}>
                             <Book key={book.id} {...book} />

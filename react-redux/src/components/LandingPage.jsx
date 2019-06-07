@@ -26,7 +26,7 @@ class LandingPage extends Component {
       <>
       <SearchAppBar />
       <BookList books={books} searchTerm={searchTerm} />
-      <div ref={ref => (this.target = ref)}>Loading...</div>
+      <div className="target" ref={ref => (this.target = ref)}>Loading...</div>
       </>
         );
     }

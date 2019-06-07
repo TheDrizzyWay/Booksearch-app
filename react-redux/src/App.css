@@ -3,3 +3,7 @@ body {
   background: #f4f4f4;
   font: 400 14px 'CoreSans', Arial,sans-serif;
 }
+
+.target {
+  border: 2px solid red;
+}
