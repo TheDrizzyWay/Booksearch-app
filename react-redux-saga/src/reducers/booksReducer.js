@@ -1,4 +1,4 @@
-import { FETCH_BOOKS } from '../actions/bookActions';
+import { UPDATE_BOOKS } from '../actions/bookActions';
 
 const initialState = {
     books: [],
@@ -8,7 +8,7 @@ const initialState = {
 
 const booksReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_BOOKS:
+        case UPDATE_BOOKS:
             return {
                 books: state.books.concat(action.payload),
                 searchTerm: action.searchTerm,
